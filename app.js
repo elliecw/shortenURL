@@ -1,9 +1,13 @@
 // 載入 express 並建構應用程式伺服器
 const express = require('express')
 const mongoose = require('mongoose') // 載入 mongoose
+const exphbs = require('express-handlebars')
 const app = express()
 
 mongoose.connect('mongodb://localhost/shortenURL') // 設定連線到 mongoDB
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }))
+app.set("view engine", "handlebars")
 
 // 取得資料庫連線狀態
 const db = mongoose.connection
@@ -18,7 +22,7 @@ db.once('open', () => {
 
 // 設定首頁路由
 app.get('/', (req, res) => {
-  res.send('hello world')
+  res.render('index')
 })
 
 // 設定 port 3000
