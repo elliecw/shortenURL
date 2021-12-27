@@ -2,13 +2,12 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const URL = require("./models/URL")
+const shortenURL = require("./utils/shortenURL")
 require('./config/mongoose')
 
 const routes = require('./routes')
 const app = express()
 const port = 3000
-
-mongoose.connect('mongodb://localhost/shortenURL') // 設定連線到 mongoDB
 
 app.use(express.urlencoded({ extended: true }))
 app.engine("handlebars", exphbs({ defaultLayout: "main" }))
