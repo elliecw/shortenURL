@@ -15,11 +15,11 @@
 
 2. 將專案 clone 到本地
    ```
-   git clone https://github.com/elliecw/restaurant_list
+   git clone https://github.com/elliecw/shortenURL
    ```
-3. 進入 restaurant_list 路徑
+3. 進入 shortenURL 路徑
    ```
-   cd restaurant_list
+   cd shortenURL
    ```
 4. 在本地開啟之後，透過終端機，輸入：
    ```
