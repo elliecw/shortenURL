@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb://localhost/url-shortener", {
+mongoose.connect("mongodb://localhost/shortenURL", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
