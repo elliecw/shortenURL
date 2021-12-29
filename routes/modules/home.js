@@ -9,14 +9,14 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  //沒輸入網址則不動作
+  // 沒輸入網址則不動作
   const url = req.body.url
   if (!url) return res.redirect('/')
 
-  //產生五碼亂數字元
+  // 產生五碼亂數字元
   const shortURL = shortenURL(5)
 
-  //輸入網址是否已存在 回傳第一個符合條件的結果
+  // 輸入網址是否已存在 回傳第一個符合條件的結果
   URL.findOne({ originalURL: url })
     .then(data =>
       data ? data : URL.create({ shortURL, originalURL: url })
@@ -31,9 +31,9 @@ router.post('/', (req, res) => {
 })
 
 //將短網址導向原本網址
-router.get('/:shortURL', (req, res) => {
+router.get('/:shortenURL', (req, res) => {
   const short = req.params.shortenURL
-  URL.findOne({ shortenURL})
+  URL.findOne({ shortenURL: short})
     .lean()
     .then(data => {
       res.redirect(data.url)
