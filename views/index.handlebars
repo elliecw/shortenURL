@@ -1,7 +1,7 @@
 {{#if shortURL}}
 <div class="result">
   <h3>Success! Please use this link:</h3>
-  <p id="generatedURL">{{origin}}/{{shortURL}}</p>
+  <p><a href="{{shortURL}}" id="generatedURL" target="_blank">{{origin}}/{{shortURL}}</a></p>
 </div>
 <button class="copy" onclick="copy()">Copy</button>
 
