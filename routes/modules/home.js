@@ -30,13 +30,13 @@ router.post('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
-//將短網址導向原本網址
-router.get('/:shortenURL', (req, res) => {
-  const short = req.params.shortenURL
-  URL.findOne({ shortenURL: short})
+// //將短網址導向原本網址
+router.get('/:shortURL', (req, res) => {
+  const { shortURL } = req.params
+  URL.findOne({ shortURL })
     .lean()
     .then(data => {
-      res.redirect(data.url)
+      res.redirect(data.originalURL)
     })
     .catch(error => {
       res.render('index', { error })
